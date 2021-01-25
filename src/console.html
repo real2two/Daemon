@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Console</title>
+    </head>
+    <body>
+        <p>do ctrl-shift-i</p>
+        <p><a href="/servers/power/start?id=test">Start</a></p>
+        <p><a href="/servers/power/kill?id=test">Kill</a></p>
+        <p><a href="/servers/power/restart?id=test">Restart (Kill -> Start)</a></p>
+        <p><a href="/servers/delete?id=test">Delete server</a></p>
+
+        <form action="/servers/install" method="post">
+            <label for="id">Server ID: </label>
+            <input type="text" name="id" value="test"><br>
+            <label for="port">Port: </label>
+            <input type="text" name="port" value="25565"><br>
+            <label for="image">Image: </label>
+            <input type="text" name="image" value="itzg/minecraft-server"><br>
+            <label for="env">ENV: </label>
+            <input type="text" name="env" value='["EULA=TRUE", "MEMORY=2G"]'><br>
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+
+        <textarea rows="30" cols="50" id="console"></textarea>
+        <script>
+            let scheme = "ws";
+            
+            if (document.location.protocol === "https:") {
+                scheme += "s";
+            }
+
+            let connection = new WebSocket(scheme + "://" + document.location.hostname + ":5000/servers/console?id=test");
+
+            connection.onopen = function(evt) {
+                console.log("[WEBSOCKET] Successfully connected.");
+
+                connection.onmessage = function(evt) {
+                    let console = JSON.parse(evt.data);
+                    document.getElementById("console").value = console.join("\n");
+                    document.getElementById("console").scrollTop = document.getElementById("console").scrollHeight;
+                };
+
+                connection.onclose = function(evt) {
+                    console.log("[WEBSOCKET] The websocket has disconnected.")
+                }
+            }
+        </script>
+            <p>
+                <input type = "text"
+                       id = "myText"
+                       value = "" />
+            </p>
+    </body>
+</html>

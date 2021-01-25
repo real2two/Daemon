@@ -1,0 +1,46 @@
+{
+  "name": "robopanel-daemon",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "TeamMunchkin",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://github.com/RoboPanel/Daemon#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoboPanel/Daemon"
+  },
+  "bugs": {
+    "url": "https://github.com/RoboPanel/Daemon/issues"
+  },
+  "bin": "src/index.js",
+  "scripts": {
+    "startinstall": "node src/index.js --mode install --name RoboPanel-test1",
+    "start": "node src/index.js",
+    "startstop": "node src/index.js --mode stop --name RoboPanel-test1",
+    "startrestart": "node src/index.js --mode restart --name RoboPanel-test1",
+    "startstart": "node src/index.js --mode start --name RoboPanel-test1",
+    "startkill": "node src/index.js --mode kill --name RoboPanel-test1",
+    "startremove": "node src/index.js --mode remove --name RoboPanel-test1",
+    "prettier": "prettier --write .",
+    "build": "pkg . -t node12-win-x64 -o build/daemon.exe"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "connect": "^3.7.0",
+    "dockerode": "^3.2.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
+    "mongoose": "^5.11.7",
+    "node-fetch": "^2.6.1",
+    "path": "^0.12.7",
+    "rfr": "^1.2.3",
+    "websocket": "^1.0.32",
+    "yargs": "^16.1.0"
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
+  }
+}
