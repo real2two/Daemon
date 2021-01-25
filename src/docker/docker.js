@@ -319,6 +319,7 @@ exports.Console = async (ws, req) => {
   try {
     let consoleName = req.query.id;
     if (!consoleName) {
+      ws.send("No Console Name!")
       ws.close();
       return;
     }
@@ -333,6 +334,7 @@ exports.Console = async (ws, req) => {
           ws.send(JSON.stringify(logs[consoleName] ? logs[consoleName] : []));
         } else {
           clearInterval(wsinterval);
+          ws.send("close")
           ws.close();
         }
       } else {

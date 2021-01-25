@@ -31,7 +31,7 @@
                 scheme += "s";
             }
 
-            let connection = new WebSocket(scheme + "://" + document.location.hostname + ":5000/servers/console?id=test");
+            let connection = new WebSocket(scheme + "://" + document.location.hostname + ":8080/servers/console?id=test");
 
             connection.onopen = function(evt) {
                 console.log("[WEBSOCKET] Successfully connected.");
