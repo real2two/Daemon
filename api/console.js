@@ -25,9 +25,15 @@ async function resetContainer(id) {
   logs[id] = [];
 }
 
+async function addContainerMessage(id, msg) {
+  if (logs[id].length >= 100) logs[id].slice(1);
+  logs[id].push(msg);
+}
+
 exports.attachContainer = attachContainer;
 exports.deattachContainer = deattachContainer;
 exports.resetContainer = resetContainer;
+exports.addContainerMessage = addContainerMessage;
 
 module.exports.load = async function(app, docker2) {
   docker = docker2;
@@ -78,7 +84,6 @@ module.exports.load = async function(app, docker2) {
     sendconsole();
   
     async function sendconsole() {
-      console.log(logs)
       if (ws.readyState == 1) {
         if (logs[id]) {
           ws.send(JSON.stringify(logs[id] ? logs[id] : []));

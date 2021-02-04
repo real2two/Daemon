@@ -10,7 +10,7 @@
         </style>
     </head>
     <body>
-        <p id="console"></p>
+        <div id="console"></div>
         <script>
             let scheme = "ws";
             
@@ -25,7 +25,7 @@
 
                 connection.onmessage = function(evt) {
                     let consolemsg = JSON.parse(evt.data);
-                    document.getElementById("console").innerHTML = consolemsg.join("<br>");
+                    document.getElementById("console").innerHTML = "<p>" + consolemsg.join("</p><p>") + "</p>";
                 };
 
                 connection.onclose = function(evt) {

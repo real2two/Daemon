@@ -86,7 +86,7 @@ module.exports.load = async function(app, docker) {
           Tty: true,
           ExposedPorts: {},
           Hostconfig: {
-            Binds: [process.env.servers + id + ":/data"],
+            Binds: [process.cwd() + "/servers/" + id + ":/data"],
             PortBindings: {},
           }
         };
