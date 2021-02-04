@@ -26,8 +26,8 @@ npm install
 
 👤 **TeamMunchkin**
 
-* Website: [https:/robopanel.tk/](https:/robopanel.tk/)
-* Github: [@TeamMunchkin](https://github.com/TeamMunchkin)
+* Website: [https:/robopanel.io/](https:/robopanel.io/)
+* Github: [@RoboPanel](https://github.com/RoboPanel)
 
 ## 🤝 Contributing
 
