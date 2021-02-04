@@ -89,7 +89,7 @@ exports.install = (req, res) => {
         Log.Info("Creating docker container.");
         docker.createContainer(
           {
-            Image: "itzg/minecraft-server:latest",
+            Image: "itzg/minecraft-server:latest", // change this "image"
             Env: env, //TODO: make these configurable
             name: installName,
             Tty: true,
