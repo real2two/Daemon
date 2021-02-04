@@ -1,6 +1,6 @@
 {
-  "name": "reseller-panel-docker",
-  "description": "A docker files for the reseller panel.",
+  "name": "robopanel-docker",
+  "description": "A docker files for the RoboPanel.",
   "main": "index.js",
   "dependencies": {
     "dockerode": "^3.2.1",
