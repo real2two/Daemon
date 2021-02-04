@@ -1,7 +1,18 @@
 {
-  "name": "robopanel-docker",
-  "description": "A docker files for the RoboPanel.",
+  "name": "robopanel-daemon",
+  "version": "0.0.1",
   "main": "index.js",
+  "author": "RoboPanel Developers",
+  "license": "MIT",
+  "homepage": "https://github.com/RoboPanel/Daemon#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoboPanel/Daemon"
+  },
+  "bugs": {
+    "url": "https://github.com/RoboPanel/Daemon/issues"
+  },
+  "bin": "index.js",
   "dependencies": {
     "dockerode": "^3.2.1",
     "dotenv": "^8.2.0",
@@ -9,6 +20,5 @@
     "express": "^4.17.1",
     "express-ws": "^4.0.0",
     "node-fetch": "^2.6.1"
-  },
-  "author": "Two"
+  }
 }
