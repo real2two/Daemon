@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Console</title>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="console"></p>
+        <script>
+            let scheme = "ws";
+            
+            if (document.location.protocol === "https:") {
+                scheme += "s";
+            }
+
+            let connection = new WebSocket(scheme + "://" + document.location.hostname + ":<%= process.env.port %>/console?code=<%= req.query.code %>");
+
+            connection.onopen = function(evt) {
+                console.log("[WEBSOCKET] Successfully connected.");
+
+                connection.onmessage = function(evt) {
+                    let consolemsg = JSON.parse(evt.data);
+                    document.getElementById("console").innerHTML = consolemsg.join("<br>");
+                };
+
+                connection.onclose = function(evt) {
+                    console.log("[WEBSOCKET] The websocket has disconnected.")
+                }
+            }
+        </script>
+    </body>
+</html>

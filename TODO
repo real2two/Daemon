@@ -1,0 +1,4 @@
+- Console: check if container.attach() will close on docker server delete
+
+- Add more power management commands. (stop, restart)
+- File manager.
