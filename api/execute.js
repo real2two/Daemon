@@ -20,7 +20,7 @@ module.exports.load = async function(app, docker) {
       error: "The command must be greater than 0 characters."
     });
 
-    // Gets and deletes the container.
+    // Gets the container and executes a command.
 
     let container = docker.getContainer(id);
 
