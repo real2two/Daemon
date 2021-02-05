@@ -24,7 +24,7 @@ npm install
 
 ## Author
 
-👤 **TeamMunchkin**
+👤 **RoboPanel Team**
 
 * Website: https://robopanel.io/
 * Github: [@RoboPanel](https://github.com/RoboPanel)
