@@ -1,19 +1,19 @@
 const Console = require("./console.js");
 
 module.exports.load = async function(app, docker) {
-  app.post("/kill/:id", async (req, res) => {
+  app.post("/stop/:id", async (req, res) => {
 
     // Set the id variable.
 
     let id = req.params.id;
 
-    // Gets and kills the container.
+    // Gets and stops the container.
 
     let container = docker.getContainer(id);
-    container.kill((err) => {
+    container.stop((err) => {
       if (err) {
         return res.send({
-          error: "An error has occured when attempting to kill the container."
+          error: "An error has occured when attempting to stop the container."
         });
       }
 

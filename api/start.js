@@ -1,3 +1,5 @@
+const Console = require("./console.js");
+
 module.exports.load = async function(app, docker) {
   app.post("/start/:id", async (req, res) => {
 
@@ -5,7 +7,7 @@ module.exports.load = async function(app, docker) {
 
     let id = req.params.id;
 
-    // Gets and deletes the container.
+    // Gets and starts the container.
 
     let container = docker.getContainer(id);
     container.start((err) => {
@@ -14,6 +16,8 @@ module.exports.load = async function(app, docker) {
           error: "An error has occured when attempting to start the container."
         });
       }
+
+      Console.attachContainer(id);
       
       res.send({
         error: "none"
