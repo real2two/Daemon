@@ -113,9 +113,6 @@ module.exports.load = async function(app, docker) {
 
             let container = docker.getContainer(id);
 
-            // Attach the container.
-            Console.attachContainer(id);
-
             // Send success message.
   
             res.send(
