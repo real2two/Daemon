@@ -47,7 +47,7 @@ module.exports.load = async function(app, docker2) {
 
   app.post('/generateconsole/:id', function(req, res) {
     let code = Math.random().toString(36).substr(2);
-    if (consolecodes[code]) code = Math.random().toString(36).substr(2);
+    while (consolecodes[code]) code = Math.random().toString(36).substr(2);
     consolecodes[code] = req.params.id;
     res.send({
       error: "none",
